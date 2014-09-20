@@ -1,0 +1,18 @@
+body {
+	background-color: #AAAAAA;
+	font-family: 'PT Mono', sanserif;
+}
+
+canvas[id=screen] {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -300px;
+	margin-left: -400px;
+	border: 1px solid #000000;
+}
+
+div[id=gameView] {
+	width: 800px;
+	height: 600px;
+}

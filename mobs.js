@@ -1,0 +1,7 @@
+function drawMobs() {
+	
+}
+
+function drawPlayer() {
+
+}
