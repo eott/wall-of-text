@@ -36,5 +36,6 @@ keyMapping = {
 89 : 121,
 90 : 122,
 32 : 32, // space
-190 : 46 // period
+190 : 46, // period
+188 : 44 // comma
 };
