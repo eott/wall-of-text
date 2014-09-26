@@ -9,6 +9,9 @@ function loadImage(name) {
 function loadImages() {
 	imagesByName["ground"] = loadImage("ground");
 	imagesByName["sky"] = loadImage("sky");
+	imagesByName["walk"] = loadImage("walk");
+	imagesByName["run"] = loadImage("run");
+	imagesByName["stand"] = loadImage("stand");
 }
 
 function circle(x, y, radius, color, width, fill) {
@@ -34,6 +37,17 @@ function drawGUI() {
 	ctx.drawImage(imagesByName["ground"], 0 - posX % 800, 500, 800, 100);
 	ctx.drawImage(imagesByName["ground"], 800 - posX % 800, 500, 800, 100);
 	ctx.drawImage(imagesByName["sky"], 0, 0, 800, 500);
+	
+	// Player
+	if (speed < 0.4) {
+		ctx.drawImage(imagesByName["stand"], 336, 372, 128, 128);
+	} else if (speed < 8.5) {
+		ctx.drawImage(imagesByName["walk"], 64 * Math.floor((fc % 16) / 2), 0, 64, 64, 336, 372, 128, 128);
+	} else if (speed < 15) {
+		ctx.drawImage(imagesByName["run"], 64 * Math.floor((fc % 16) / 2), 0, 64, 64, 336, 372, 128, 128);
+	} else {
+		ctx.drawImage(imagesByName["run"], 64 * (fc % 8), 0, 64, 64, 336, 372, 128, 128);
+	}
 	
 	// Typing stuff
 	ctx.font = "35px PT Mono";
