@@ -9,14 +9,20 @@ function doPlayerMovement() {
 function doWallMovement() {
 	var wallSpeed = 0;
 	var distance = posX - wallPosX;
+	var minSpeed = 3 + 1.5 * difficulty;
 	
-	if (distance > 800) {
-		wallSpeed = speed * 1.05;
-		wallSpeed = speed * 1.05;
+	if (distance > 1000) {
+		wallSpeed = speed * (1 + 0.1 * difficulty);
+	} else if (distance > 600) {
+		wallSpeed = speed;
 	} else {
-		wallSpeed = Math.max(speed, 0.5 * difficulty);
+		wallSpeed = minSpeed;
 	}
-
+	
+	if (fc < 90) {
+		wallSpeed = speed * 0.7;
+	}
+	
 	wallPosX += wallSpeed;
 }
 

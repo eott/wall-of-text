@@ -52,7 +52,7 @@ function drawGUI() {
 	}
 	
 	// Wall
-	ctx.drawImage(imagesByName["wall"], wallPosX - posX, 100, 150, 400);
+	ctx.drawImage(imagesByName["wall"], wallPosX - posX +  400, 100, 150, 400);
 	
 	// Typing stuff
 	ctx.font = "35px PT Mono";
@@ -70,9 +70,11 @@ function drawGUI() {
 	
 	/* Debug elements
 	ctx.font = "20px PT Mono";
-	ctx.fillText(hits, 700, 500);
-	ctx.fillText(misses, 700, 540);
-	ctx.fillText(speed, 700, 580);*/
+	ctx.fillText(hits, 700, 200);
+	ctx.fillText(misses, 700, 240);
+	ctx.fillText(speed, 700, 280);
+	ctx.fillText(posX, 700, 320);
+	ctx.fillText(wallPosX, 700, 360);*/
 	
 	// Screen shake
 	var screen = document.getElementById('screen');
