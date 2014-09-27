@@ -31,10 +31,19 @@ var PI = Math.PI
 var PI2 = PI / 2;
 var PI32 = 3 * PI / 2;
 
-// Stuff that only needs to be done once
+// Loading and stuff that only needs to be done once
+ctx.font = "35px PT Mono";
+ctx.fillText("LOADING", 325, 285);
 registerListeners();
 loadSounds();
 loadImages();
+// Draw images once to force loading them, the reset the canvas
+for (var property in imagesByName) {
+    if (imagesByName.hasOwnProperty(property)) {
+        ctx.drawImage(imagesByName[property], 0, 0, 1, 1);
+    }
+}
+ctx.clearRect(0, 0, can.width, can.height);
 
 function initGame(event) {
 	keepPlaying = true;
