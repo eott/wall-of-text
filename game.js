@@ -4,9 +4,11 @@ var ctx = can.getContext("2d");
 var keepPlaying = true;
 var mainLoop = false;
 var fc = 0;
+var difficulty = 1;
 
 // Player, enemies and environment
-var mobs = [];
+var wallPosX = -400;
+var wallPosY = 0;
 var screenShakeCounter = 0;
 
 // Input and typing
@@ -46,8 +48,8 @@ function upkeep() {
 	fc++;
 	ctx.clearRect(0, 0, can.width, can.height);
 	
-	doMovement();
-	drawMobs();
+	doPlayerMovement();
+	doWallMovement();
 	drawGUI();
 	
 	speed -= (speed * 0.04) + 0.01;

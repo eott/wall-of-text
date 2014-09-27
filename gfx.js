@@ -12,6 +12,7 @@ function loadImages() {
 	imagesByName["walk"] = loadImage("walk");
 	imagesByName["run"] = loadImage("run");
 	imagesByName["stand"] = loadImage("stand");
+	imagesByName["wall"] = loadImage("wall");
 }
 
 function circle(x, y, radius, color, width, fill) {
@@ -49,6 +50,9 @@ function drawGUI() {
 	} else {
 		ctx.drawImage(imagesByName["run"], 64 * (fc % 8), 0, 64, 64, 336, 372, 128, 128);
 	}
+	
+	// Wall
+	ctx.drawImage(imagesByName["wall"], wallPosX - posX, 100, 150, 400);
 	
 	// Typing stuff
 	ctx.font = "35px PT Mono";
