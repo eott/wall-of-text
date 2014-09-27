@@ -36,7 +36,8 @@ function drawGUI() {
 	// Background
 	ctx.drawImage(imagesByName["ground"], 0 - posX % 800, 500, 800, 100);
 	ctx.drawImage(imagesByName["ground"], 800 - posX % 800, 500, 800, 100);
-	ctx.drawImage(imagesByName["sky"], 0, 0, 800, 500);
+	ctx.drawImage(imagesByName["sky"], 0 - Math.floor((posX % 3200) / 4), 0, 800, 500);
+	ctx.drawImage(imagesByName["sky"], 800 - Math.floor((posX % 3200) / 4), 0, 800, 500);
 	
 	// Player
 	if (speed < 0.4) {
