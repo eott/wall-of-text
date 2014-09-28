@@ -19,7 +19,8 @@ function doWallMovement() {
 		wallSpeed = minSpeed;
 	}
 	
-	if (fc < 90) {
+	// Grace period
+	if (fc < 180) {
 		wallSpeed = speed * 0.7;
 	}
 	

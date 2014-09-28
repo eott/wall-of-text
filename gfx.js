@@ -89,7 +89,14 @@ function drawEndScreen() {
 	}
 }
 
-function drawGUI() {
+function drawCounter() {
+	ctx.font = "100px PT Mono";
+	ctx.fillStyle = "#0000FF";
+	c = Math.ceil((90 - fc) / 30);
+	ctx.fillText(c, 385, 150);
+}
+
+function draw() {
 	// Background
 	ctx.drawImage(imagesByName["ground"], 0 - posX % 800, 500, 800, 100);
 	ctx.drawImage(imagesByName["ground"], 800 - posX % 800, 500, 800, 100);

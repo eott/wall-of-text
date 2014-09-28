@@ -8,6 +8,7 @@ var isEndScreen = false;
 var endScreenFlags = [false];
 var wonLevel = false;
 var mainLoop = false;
+var inputIsActive = false;
 var fc = 0;
 var screenShakeCounter = 0;
 var difficulty = 1;
@@ -88,9 +89,16 @@ function upkeep() {
 	ctx.clearRect(0, 0, can.width, can.height);
 	
 	// Game
+	draw();
+	if (fc < 90) {
+		drawCounter();
+		return;
+	} else if (!inputIsActive) {
+		inputIsActive = true;
+	}
+	
 	doPlayerMovement();
 	doWallMovement();
-	drawGUI();
 	
 	if (wallPosX + 150 >= posX) {
 		death();
@@ -119,18 +127,21 @@ function hitWrongKey() {
 	screenShake();
 }
 
-function death() {
+function basicEndState() {
 	isEndScreen = true;
-	wonLevel = false;
+	inputIsActive = false;
 	fc = 0;
 	currentOffset = 0;
 }
 
+function death() {
+	basicEndState();
+	wonLevel = false;
+}
+
 function endLevel() {
-	isEndScreen = true;
+	basicEndState();
 	wonLevel = true;
-	fc = 0;
-	currentOffset = 0;
 }
 
 initGame();
