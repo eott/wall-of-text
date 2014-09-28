@@ -34,3 +34,19 @@ function stopSound(name) {
 		nameAudioMap[name].currentTime = 0;
 	}
 }
+
+function muteSound() {
+	muted = !muted;
+	
+	if (!muted) {
+		nameAudioMap["miss"].volume = 0.3;
+		nameAudioMap["background"].volume = 0.5;
+		document.getElementById("mute").style.display = "inline-block";
+		document.getElementById("unmute").style.display = "none";
+	} else {
+		nameAudioMap["miss"].volume = 0;
+		nameAudioMap["background"].volume = 0;
+		document.getElementById("mute").style.display = "none";
+		document.getElementById("unmute").style.display = "inline-block";
+	}
+}

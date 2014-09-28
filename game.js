@@ -9,6 +9,7 @@ var endScreenFlags = [false];
 var wonLevel = false;
 var mainLoop = false;
 var inputIsActive = false;
+var muted = false;
 var fc = 0;
 var screenShakeCounter = 0;
 var difficulty = 1;

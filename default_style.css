@@ -16,3 +16,20 @@ div[id=gameView] {
 	width: 800px;
 	height: 600px;
 }
+
+div[id="credits"] {
+	position: absolute;
+	top: 75px;
+	left: 15px;
+	width: 300px;
+}
+
+div[id="muteButtons"] {
+	position: absolute;
+	top: 75px;
+	right: 50px;
+}
+
+img[id="unmute"] {
+	display: none;
+}
