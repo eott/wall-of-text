@@ -66,6 +66,7 @@ function upkeep() {
 		if (fc > 450) {
 			isIntro = false;
 			fc = 0;
+			playAndLoopSound("background");
 		}
 		return;
 	}
