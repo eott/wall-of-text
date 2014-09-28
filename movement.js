@@ -34,4 +34,5 @@ function resetMovement() {
 	wallPosY = 0;
 	speed = 0;
 	wallSpeed = 0;
+	frameOfLastHit = 0;
 }
