@@ -17,7 +17,7 @@ var wallPosX = -400;
 var wallPosY = 0;
 
 // Input and typing
-var currentPhrase = phrases[0];
+var currentPhrase = getPhrase(0);
 var currentOffset = 0;
 var uppercase = 0;
 var hits = 0;
@@ -76,7 +76,7 @@ function upkeep() {
 			endScreenFlags[0] = false;
 			fc = 0;
 			if (wonLevel) {
-				currentPhrase = phrases[difficulty];
+				currentPhrase = getPhrase(difficulty);
 				difficulty++;
 				wonLevel = false;
 			}
@@ -123,12 +123,14 @@ function death() {
 	isEndScreen = true;
 	wonLevel = false;
 	fc = 0;
+	currentOffset = 0;
 }
 
 function endLevel() {
 	isEndScreen = true;
 	wonLevel = true;
 	fc = 0;
+	currentOffset = 0;
 }
 
 initGame();

@@ -3,6 +3,24 @@ phrases = [
 	"Not implemented yet."
 ];
 
+function getPhrase(nr) {
+	if (phrases[nr]) {
+		return phrases[nr];
+	} else {
+		words = [
+			"can", "do", "it", "help", "trapped", "free", "us",
+			"you", "chosen", "one", "believe", "forever",
+			"prophecy", "gods", "escape", "must", "please", "hero",
+			"are", "the", "here", "made"
+		];
+		phrase = words[Math.floor(Math.random() * words.length)];
+		for (var i = 0; i < 50; i++) {
+			phrase = phrase + " " + words[Math.floor(Math.random() * words.length)];
+		}
+		return phrase;
+	}
+}
+
 introText = [
 	"Remembering back, I can't quite put my mind to when it star-",
 	"ted, because honestly it's hard to remember so far back, un-",
