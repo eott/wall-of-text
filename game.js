@@ -2,14 +2,16 @@
 var can = document.getElementById("screen");
 var ctx = can.getContext("2d");
 var keepPlaying = true;
+var isIntro = true;
+var introFlags = [false, false, false];
 var mainLoop = false;
 var fc = 0;
+var screenShakeCounter = 0;
 var difficulty = 1;
 
 // Player, enemies and environment
 var wallPosX = -400;
 var wallPosY = 0;
-var screenShakeCounter = 0;
 
 // Input and typing
 var currentPhrase = phrases[0];
@@ -21,8 +23,6 @@ var frameOfLastHit = 0;
 
 // Movement
 var speed = 0;
-var startX = 0;
-var startY = 0;
 var posX = 0;
 var posY = 0;
 
@@ -37,7 +37,7 @@ ctx.fillText("LOADING", 325, 285);
 registerListeners();
 loadSounds();
 loadImages();
-// Draw images once to force loading them, the reset the canvas
+// Draw images once to force loading them, then reset the canvas
 for (var property in imagesByName) {
     if (imagesByName.hasOwnProperty(property)) {
         ctx.drawImage(imagesByName[property], 0, 0, 1, 1);
@@ -55,8 +55,20 @@ function initGame(event) {
 
 function upkeep() {
 	fc++;
+	
+	// Intro
+	if (isIntro) {
+		drawIntro();
+		if (fc > 450) {
+			isIntro = false;
+			fc = 0;
+		}
+		return;
+	}
+	
 	ctx.clearRect(0, 0, can.width, can.height);
 	
+	// Game
 	doPlayerMovement();
 	doWallMovement();
 	drawGUI();

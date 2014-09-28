@@ -29,4 +29,8 @@ function doWallMovement() {
 function resetMovement() {
 	posX = 0;
 	posY = 0;
+	wallPosX = -400;
+	wallPosY = 0;
+	speed = 0;
+	wallSpeed = 0;
 }

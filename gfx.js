@@ -13,6 +13,7 @@ function loadImages() {
 	imagesByName["run"] = loadImage("run");
 	imagesByName["stand"] = loadImage("stand");
 	imagesByName["wall"] = loadImage("wall");
+	imagesByName["help"] = loadImage("help");
 }
 
 function circle(x, y, radius, color, width, fill) {
@@ -30,6 +31,36 @@ function circle(x, y, radius, color, width, fill) {
 function screenShake() {
 	if (screenShakeCounter == 0) {
 		screenShakeCounter = 4;
+	}
+}
+
+function drawIntro() {
+	if (!introFlags[0]) {
+		ctx.fillStyle = "#000000";
+		ctx.fillRect(0, 0, 800, 600);
+		
+		ctx.font = "100px PT Mono";
+		ctx.fillStyle = "#FFFFFF";
+		ctx.fillText("WALL OF TEXT", 40, 100);
+		
+		ctx.font = "20px PT Mono";
+		for (var i = 0; i < 13; i++) {
+			ctx.fillText(getIntroTextByLine(i), 40, 150 + 25 * i);
+		}
+		
+		introFlags[0] = true;
+	}
+	
+	if (!introFlags[1] && fc > 150) {
+		ctx.font = "60px PT Mono";
+		ctx.fillText("ENOUGH OF THIS!", 120, 540);
+		introFlags[1] = true;
+	}
+	
+	if (!introFlags[2] && fc > 210) {
+		ctx.clearRect(0, 0, can.width, can.height);
+		ctx.drawImage(imagesByName["help"], 0, 0, 800, 600);
+		introFlags[2] = true;
 	}
 }
 
