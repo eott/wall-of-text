@@ -64,6 +64,31 @@ function drawIntro() {
 	}
 }
 
+function drawEndScreen() {
+	if (!endScreenFlags[0]) {
+		ctx.fillStyle = "#000000";
+		ctx.fillRect(0, 0, 800, 600);
+		
+		ctx.font = "100px PT Mono";
+		ctx.fillStyle = "#FFFFFF";
+		if (wonLevel) {
+			ctx.fillText("You won!", 150, 150);
+		} else {
+			ctx.fillText("You lost!", 120, 150);
+		}
+		
+		ctx.font = "60px PT Mono";
+		ctx.fillText("Get ready for", 150, 300);
+		if (wonLevel) {
+			ctx.fillText("next level", 210, 390);
+		} else {
+			ctx.fillText("retry", 290, 390);
+		}
+	
+		endScreenFlags[0] = true;
+	}
+}
+
 function drawGUI() {
 	// Background
 	ctx.drawImage(imagesByName["ground"], 0 - posX % 800, 500, 800, 100);

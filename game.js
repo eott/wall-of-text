@@ -4,6 +4,9 @@ var ctx = can.getContext("2d");
 var keepPlaying = true;
 var isIntro = true;
 var introFlags = [false, false, false];
+var isEndScreen = false;
+var endScreenFlags = [false];
+var wonLevel = false;
 var mainLoop = false;
 var fc = 0;
 var screenShakeCounter = 0;
@@ -66,12 +69,33 @@ function upkeep() {
 		return;
 	}
 	
+	if (isEndScreen) {
+		drawEndScreen();
+		if (fc > 240) {
+			isEndScreen = false;
+			endScreenFlags[0] = false;
+			fc = 0;
+			if (wonLevel) {
+				currentPhrase = phrases[difficulty];
+				difficulty++;
+				wonLevel = false;
+			}
+			resetMovement();
+		}
+		return;
+	}
+	
 	ctx.clearRect(0, 0, can.width, can.height);
 	
 	// Game
 	doPlayerMovement();
 	doWallMovement();
 	drawGUI();
+	
+	if (wallPosX + 150 >= posX) {
+		death();
+		return;
+	}
 	
 	speed -= (speed * 0.04) + 0.01;
 	speed = Math.max(speed, 0);
@@ -93,6 +117,18 @@ function hitWrongKey() {
 	speed -= 0.1;
 	playOrResetSound("miss");
 	screenShake();
+}
+
+function death() {
+	isEndScreen = true;
+	wonLevel = false;
+	fc = 0;
+}
+
+function endLevel() {
+	isEndScreen = true;
+	wonLevel = true;
+	fc = 0;
 }
 
 initGame();

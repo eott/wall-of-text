@@ -4,12 +4,17 @@ function registerListeners() {
 		if (pressedKey == 16) {
 			uppercase = 32;
 		} else {
+			if (currentOffset >= currentPhrase.length - 1) {
+				endLevel();
+			}
+			
 			var middle = currentPhrase.substring(currentOffset, currentOffset + 1);
 			if (middle.charCodeAt(0) == keyMapping[pressedKey] - uppercase) {
 				hitCorrectKey();
 			} else {
 				hitWrongKey();
 			}
+			
 			currentOffset++;
 		}
 	}, false);
