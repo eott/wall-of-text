@@ -1,6 +1,8 @@
 phrases = [
-	"Never forget I am not this silver body, Mahrai. I am not an animal brain, I am not even some attempt to produce an AI through software running on a computer. I am a Culture Mind. We are close to gods, and on the far side. We are quicker, we live faster and more completely than you do, with so many more senses, such a greater store of memories and at such a fine level of detail.",
-	"Not implemented yet."
+	"They made a mad attempt at following us in the fractured canoe, but, finding it useless, again vented their rage in a series of hideous vociferations, and rushed up into the hills.",
+	"We calculated, therefore, upon being yet pursued, as soon as our enemies could get round to the bay, distant about three miles, where the boats were usually laid up. Fearing this, we made every exertion to leave the island behind us, and went rapidly through the water, forcing the prisoner to take a paddle.",
+	"We now found ourselves in the wide and desolate Antarctic Ocean, in a latitude exceeding eighty-four degrees, in a frail canoe, and with no provision but the three turtles. The long polar winter, too, could not be considered as far distant, and it became necessary that we should deliberate well upon the course to be pursued.",
+	"We also set up two paddle-blades for masts, placing them opposite each other, one by each gunwale, thus saving the necessity of a yard. To these masts we attached a sail made of our shirts-doing this with some difficulty, as here we could get no assistance from our prisoner whatever, although he bad been willing enough to labor in all the other operations. The sight of the linen seemed to affect him in a very singular manner. He could not be prevailed upon to touch it or go near it, shuddering when we attempted to force him, and shrieking out, Tekeli-li."
 ];
 
 function getPhrase(nr) {
